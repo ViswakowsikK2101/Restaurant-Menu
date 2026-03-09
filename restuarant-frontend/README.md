@@ -65,25 +65,21 @@ Frontend runs on `http://localhost:4200`.
 - `POST /api/orders`
 - `GET /api/orders`
 
-## GitHub Pages Deployment (Frontend) + Railway (Backend)
+## Deployment
 
-1. Build frontend for GitHub Pages:
+- Frontend is deployed automatically to GitHub Pages via
+  `.github/workflows/deploy-frontend-gh-pages.yml`.
+- Production URL: `https://viswakowsikk2101.github.io/Restaurant-Menu/`
+- Every push to `main` that changes `restuarant-frontend/` triggers a new deploy.
 
-```bash
-npm run build -- --base-href /Restaurant-Menu/ --output-path dist/github-pages
-```
+### Runtime API Mode
 
-2. Copy `dist/github-pages/browser/*` into repository root.
-   This creates root `index.html` required by GitHub Pages.
-
-3. In root `config.js`, set your Railway backend URL:
-
-```js
-// Example
-var defaultApiBaseUrl = 'https://your-service-name.up.railway.app';
-```
-
-4. Keep `useMockBackend` as `false` for production.
+- `public/config.js` now defaults to `useMockBackend: true` so the deployed site works
+  even when backend hosting is unavailable.
+- To force live backend usage in production, inject `window.__APP_CONFIG__` before
+  `config.js` loads and set:
+  - `apiBaseUrl` to your API URL
+  - `useMockBackend` to `false`
 
 ## Screenshots
 

@@ -4,7 +4,7 @@ import {
   provideZoneChangeDetection,
   importProvidersFrom
 } from '@angular/core';
-import {provideRouter} from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 import { provideHttpClient, withInterceptors, withFetch } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -21,8 +21,8 @@ const httpInterceptors = USE_MOCK_BACKEND
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideBrowserGlobalErrorListeners(), 
-    provideRouter(routes),
+    provideBrowserGlobalErrorListeners(),
+    provideRouter(routes, withHashLocation()),
     provideHttpClient(withFetch(), withInterceptors(httpInterceptors)),
     provideAnimations(),
     importProvidersFrom(MatSnackBarModule)
