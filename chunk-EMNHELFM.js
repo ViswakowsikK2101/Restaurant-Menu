@@ -1,1 +1,0 @@
-var i=globalThis,e=i.__APP_CONFIG__??{},o=t=>{if(typeof t!="string")return"";let n=t.trim();return n?n.replace(/\/+$/,""):""},r=o(e.apiBaseUrl),s=e.useMockBackend===!0,c=t=>{if(!r)return t;let n=t.startsWith("/")?t:`/${t}`;return`${r}${n}`};export{s as a,c as b};

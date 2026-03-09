@@ -23,3 +23,13 @@ Thumbs.db
 
 # Misc
 **/*.tsbuildinfo
+
+# Legacy root static build artifacts (GitHub Pages output should come from restuarant-frontend/dist)
+/chunk-*.js
+/main-*.js
+/styles-*.css
+/index.html
+/404.html
+/config.js
+/favicon.ico
+/images/

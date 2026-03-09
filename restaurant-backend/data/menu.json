@@ -37,7 +37,7 @@
     "description": "Toasted bread topped with garlic and olive oil.",
     "price": 109,
     "category": "Starters",
-    "image": "https://images.unsplash.com/photo-1573140247632-f84660f67627?auto=format&fit=crop&w=500&q=60"
+    "image": "https://www.ambitiouskitchen.com/wp-content/uploads/2023/02/Garlic-Bread-4.jpg"
   },
   {
     "id": 6,
@@ -126,5 +126,141 @@
     "price": 359,
     "category": "Specials",
     "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 17,
+    "name": "Virgin Mojito",
+    "description": "Mint, lime, and soda served over ice.",
+    "price": 119,
+    "category": "Drinks",
+    "image": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 18,
+    "name": "Watermelon Cooler",
+    "description": "Fresh watermelon juice with basil and lemon.",
+    "price": 129,
+    "category": "Drinks",
+    "image": "https://images.unsplash.com/photo-1523371054106-bbf80586c38c?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 19,
+    "name": "Truffle Mushroom Steak",
+    "description": "Grilled mushroom steak with truffle butter and pepper jus.",
+    "price": 389,
+    "category": "Main Course",
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 20,
+    "name": "Smoky BBQ Chicken Pizza",
+    "description": "Loaded with barbecue chicken, onions, and mozzarella.",
+    "price": 349,
+    "category": "Pizza",
+    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 21,
+    "name": "Double Cheese Crunch Burger",
+    "description": "Juicy double patty burger with cheddar and crispy onions.",
+    "price": 259,
+    "category": "Burger",
+    "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 22,
+    "name": "Mediterranean Quinoa Salad",
+    "description": "Quinoa, olives, feta, cherry tomatoes, and lemon dressing.",
+    "price": 219,
+    "category": "Salad",
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 23,
+    "name": "Peri Peri Paneer Wrap",
+    "description": "Spicy paneer, crunchy veggies, and creamy garlic mayo wrap.",
+    "price": 209,
+    "category": "Wraps",
+    "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 24,
+    "name": "Herb Crusted Grilled Salmon",
+    "description": "Pan-seared salmon with herbed crust, garlic mash, and lemon butter.",
+    "price": 429,
+    "category": "Main Course",
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 25,
+    "name": "Creamy Butter Chicken Bowl",
+    "description": "Smoky tandoor chicken simmered in rich tomato-butter gravy.",
+    "price": 379,
+    "category": "Main Course",
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 26,
+    "name": "Four Cheese Volcano Pizza",
+    "description": "Mozzarella, cheddar, parmesan, and gouda on a crispy base.",
+    "price": 369,
+    "category": "Pizza",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 27,
+    "name": "Spicy Pepperoni Feast",
+    "description": "Pepperoni-loaded pizza with jalapenos and chili oil drizzle.",
+    "price": 389,
+    "category": "Pizza",
+    "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 28,
+    "name": "Nashville Crunch Chicken Burger",
+    "description": "Crispy chicken fillet, pickles, spicy mayo, and slaw.",
+    "price": 279,
+    "category": "Burger",
+    "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 29,
+    "name": "BBQ Bacon Smash Burger",
+    "description": "Double smashed patties, smoky BBQ glaze, bacon, and cheddar.",
+    "price": 299,
+    "category": "Burger",
+    "image": "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 30,
+    "name": "Avocado Citrus Power Salad",
+    "description": "Avocado, baby greens, citrus, seeds, and honey-lime dressing.",
+    "price": 239,
+    "category": "Salad",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 31,
+    "name": "Roasted Beetroot Goat Cheese Salad",
+    "description": "Roasted beets, goat cheese, walnuts, and balsamic glaze.",
+    "price": 249,
+    "category": "Salad",
+    "image": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 32,
+    "name": "Tandoori Chicken Kathi Wrap",
+    "description": "Charred tandoori chicken, onions, mint chutney, and soft roti.",
+    "price": 249,
+    "category": "Wraps",
+    "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 33,
+    "name": "Falafel Hummus Crunch Wrap",
+    "description": "Crispy falafel, hummus, veggies, and tahini in a toasted wrap.",
+    "price": 229,
+    "category": "Wraps",
+    "image": "https://images.unsplash.com/photo-1547496502-affa22d38842?auto=format&fit=crop&w=500&q=60"
   }
 ]

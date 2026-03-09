@@ -53,7 +53,7 @@ const MENU_ITEMS = [
     name: 'Garlic Bread',
     description: 'Toasted bread topped with garlic and olive oil.',
     price: 4.99,
-    image: '/images/garlic-bread.svg',
+    image: 'https://images.pexels.com/photos/1759288/pexels-photo-1759288.jpeg?auto=compress&cs=tinysrgb&w=500',
     category: 'Starters'
   },
   {
@@ -124,6 +124,96 @@ const MENU_ITEMS = [
     image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=60',
     category: 'Wraps',
     isPopular: true
+  },
+  {
+    id: 14,
+    name: 'Herb Crusted Grilled Salmon',
+    description: 'Pan-seared salmon with herbed crust, garlic mash, and lemon butter.',
+    price: 14.99,
+    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=60',
+    category: 'Main Course',
+    isChefPick: true
+  },
+  {
+    id: 15,
+    name: 'Creamy Butter Chicken Bowl',
+    description: 'Smoky tandoor chicken simmered in rich tomato-butter gravy.',
+    price: 13.49,
+    image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=500&q=60',
+    category: 'Main Course',
+    isPopular: true
+  },
+  {
+    id: 16,
+    name: 'Four Cheese Volcano Pizza',
+    description: 'Mozzarella, cheddar, parmesan, and gouda on a crispy base.',
+    price: 12.99,
+    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60',
+    category: 'Pizza',
+    isChefPick: true
+  },
+  {
+    id: 17,
+    name: 'Spicy Pepperoni Feast',
+    description: 'Pepperoni-loaded pizza with jalapenos and chili oil drizzle.',
+    price: 13.99,
+    image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500&q=60',
+    category: 'Pizza',
+    isPopular: true
+  },
+  {
+    id: 18,
+    name: 'Nashville Crunch Chicken Burger',
+    description: 'Crispy chicken fillet, pickles, spicy mayo, and slaw.',
+    price: 10.99,
+    image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=60',
+    category: 'Burger',
+    isPopular: true
+  },
+  {
+    id: 19,
+    name: 'BBQ Bacon Smash Burger',
+    description: 'Double smashed patties, smoky BBQ glaze, bacon, and cheddar.',
+    price: 11.49,
+    image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=60',
+    category: 'Burger',
+    isChefPick: true
+  },
+  {
+    id: 20,
+    name: 'Avocado Citrus Power Salad',
+    description: 'Avocado, baby greens, citrus, seeds, and honey-lime dressing.',
+    price: 8.49,
+    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=60',
+    category: 'Salad',
+    isPopular: true
+  },
+  {
+    id: 21,
+    name: 'Roasted Beetroot Goat Cheese Salad',
+    description: 'Roasted beets, goat cheese, walnuts, and balsamic glaze.',
+    price: 8.99,
+    image: 'https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=500&q=60',
+    category: 'Salad',
+    isChefPick: true
+  },
+  {
+    id: 22,
+    name: 'Tandoori Chicken Kathi Wrap',
+    description: 'Charred tandoori chicken, onions, mint chutney, and soft roti.',
+    price: 9.49,
+    image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=60',
+    category: 'Wraps',
+    isPopular: true
+  },
+  {
+    id: 23,
+    name: 'Falafel Hummus Crunch Wrap',
+    description: 'Crispy falafel, hummus, veggies, and tahini in a toasted wrap.',
+    price: 8.79,
+    image: 'https://images.unsplash.com/photo-1547496502-affa22d38842?auto=format&fit=crop&w=500&q=60',
+    category: 'Wraps',
+    isChefPick: true
   }
 ];
 
