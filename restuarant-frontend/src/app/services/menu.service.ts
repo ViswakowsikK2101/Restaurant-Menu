@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { MenuItem } from '../models/menu-item.model';
 import { isPlatformBrowser } from '@angular/common';
+import { buildApiUrl } from '../config/runtime-config';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class MenuService {
   private http = inject(HttpClient);
   private platformId = inject(PLATFORM_ID);
-  private apiUrl = '/api/menu';
+  private apiUrl = buildApiUrl('/api/menu');
 
   getMenuItems(): Observable<MenuItem[]> {
     if (isPlatformBrowser(this.platformId)) {

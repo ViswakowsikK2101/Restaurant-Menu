@@ -65,6 +65,26 @@ Frontend runs on `http://localhost:4200`.
 - `POST /api/orders`
 - `GET /api/orders`
 
+## GitHub Pages Deployment (Frontend) + Railway (Backend)
+
+1. Build frontend for GitHub Pages:
+
+```bash
+npm run build -- --base-href /Restaurant-Menu/ --output-path dist/github-pages
+```
+
+2. Copy `dist/github-pages/browser/*` into repository root.
+   This creates root `index.html` required by GitHub Pages.
+
+3. In root `config.js`, set your Railway backend URL:
+
+```js
+// Example
+var defaultApiBaseUrl = 'https://your-service-name.up.railway.app';
+```
+
+4. Keep `useMockBackend` as `false` for production.
+
 ## Screenshots
 
 Add your screenshots under `docs/screenshots/` and list them here for submission.

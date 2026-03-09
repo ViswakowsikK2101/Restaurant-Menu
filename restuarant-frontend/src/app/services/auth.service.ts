@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { UserProfileService } from './user-profile.service';
+import { buildApiUrl } from '../config/runtime-config';
 
 interface AuthApiUser {
   name: string;
@@ -41,7 +42,7 @@ export interface LoginPayload {
 export class AuthService {
   private http = inject(HttpClient);
   private userProfileService = inject(UserProfileService);
-  private apiUrl = '/api/auth';
+  private apiUrl = buildApiUrl('/api/auth');
 
   register(payload: RegisterPayload): Observable<void> {
     return this.http.post<AuthApiResponse>(`${this.apiUrl}/register`, payload).pipe(

@@ -5,6 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Order } from '../models/order.model';
 import { OrderResponse } from '../models/order-response.model';
+import { buildApiUrl } from '../config/runtime-config';
 
 interface OrderApiResponse {
   orderId?: number;
@@ -53,7 +54,7 @@ export interface OrderHistoryEntry {
 export class OrderService {
   private http = inject(HttpClient);
   private platformId = inject(PLATFORM_ID);
-  private apiUrl = '/api/orders';
+  private apiUrl = buildApiUrl('/api/orders');
   private readonly historyStorageKey = 'urban-plate-order-history';
   readonly cancellationWindowMinutes = 15;
 
