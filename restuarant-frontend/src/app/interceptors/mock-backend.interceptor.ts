@@ -22,10 +22,41 @@ interface MockOrder {
   cancelledAt: string | null;
 }
 
+interface MockAuthUser {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  address: string;
+  cardNumber: string;
+  cardHolder: string;
+  expiry: string;
+  cvv: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 const ORDER_STORAGE_KEY = 'urban-plate-mock-orders';
+const USER_STORAGE_KEY = 'urban-plate-mock-users';
 const CANCELLATION_WINDOW_MINUTES = 15;
+const DEFAULT_AUTH_USERS: MockAuthUser[] = [
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'johndoe@example.com',
+    password: 'john@123',
+    address: '123, Main City, New York',
+    cardNumber: '1234 5678 9101 1234',
+    cardHolder: 'John Doe',
+    expiry: '08/28',
+    cvv: '123',
+    createdAt: '2026-03-09T05:58:44.553Z',
+    updatedAt: '2026-03-09T05:58:44.553Z'
+  }
+];
 
 const hasStorage = () => typeof localStorage !== 'undefined';
+const normalizeEmail = (email?: string): string => String(email || '').trim().toLowerCase();
 
 const readMockOrders = (): MockOrder[] => {
   if (!hasStorage()) {
@@ -53,6 +84,52 @@ const writeMockOrders = (orders: MockOrder[]): void => {
   }
 
   localStorage.setItem(ORDER_STORAGE_KEY, JSON.stringify(orders));
+};
+
+const sanitizeUser = (user: MockAuthUser) => ({
+  id: user.id,
+  name: user.name,
+  email: user.email,
+  address: user.address,
+  cardNumber: user.cardNumber,
+  cardHolder: user.cardHolder,
+  expiry: user.expiry,
+  cvv: user.cvv,
+  createdAt: user.createdAt,
+  updatedAt: user.updatedAt,
+});
+
+const writeMockUsers = (users: MockAuthUser[]): void => {
+  if (!hasStorage()) {
+    return;
+  }
+
+  localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(users));
+};
+
+const readMockUsers = (): MockAuthUser[] => {
+  if (!hasStorage()) {
+    return DEFAULT_AUTH_USERS;
+  }
+
+  try {
+    const raw = localStorage.getItem(USER_STORAGE_KEY);
+    if (!raw) {
+      writeMockUsers(DEFAULT_AUTH_USERS);
+      return DEFAULT_AUTH_USERS;
+    }
+
+    const parsed = JSON.parse(raw) as MockAuthUser[];
+    if (!Array.isArray(parsed)) {
+      writeMockUsers(DEFAULT_AUTH_USERS);
+      return DEFAULT_AUTH_USERS;
+    }
+
+    return parsed;
+  } catch {
+    writeMockUsers(DEFAULT_AUTH_USERS);
+    return DEFAULT_AUTH_USERS;
+  }
 };
 
 const isWithinCancellationWindow = (orderDateIso: string): boolean => {
@@ -402,6 +479,107 @@ const MENU_ITEMS: MenuItem[] = [
 
 export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
   const { url, method, body } = req;
+
+  // Mock POST /api/auth/register
+  if (url.endsWith('/api/auth/register') && method === 'POST') {
+    const registerBody = body as {
+      name?: string;
+      email?: string;
+      password?: string;
+      address?: string;
+      cardNumber?: string;
+      cardHolder?: string;
+      expiry?: string;
+      cvv?: string;
+    };
+
+    const requiredFields = [
+      registerBody.name,
+      registerBody.email,
+      registerBody.password,
+      registerBody.address,
+      registerBody.cardNumber,
+      registerBody.cardHolder,
+      registerBody.expiry,
+      registerBody.cvv,
+    ];
+
+    if (requiredFields.some((value) => !String(value || '').trim())) {
+      return of(new HttpResponse({
+        status: 400,
+        body: { message: 'All fields are required for registration.' }
+      })).pipe(delay(300));
+    }
+
+    const users = readMockUsers();
+    const normalizedEmail = normalizeEmail(registerBody.email);
+    const existing = users.find((user) => user.email === normalizedEmail);
+
+    if (existing) {
+      return of(new HttpResponse({
+        status: 409,
+        body: { message: 'User already exists. Please login.' }
+      })).pipe(delay(300));
+    }
+
+    const nextId = users.length > 0 ? Math.max(...users.map((user) => Number(user.id) || 0)) + 1 : 1;
+    const now = new Date().toISOString();
+    const newUser: MockAuthUser = {
+      id: nextId,
+      name: String(registerBody.name).trim(),
+      email: normalizedEmail,
+      password: String(registerBody.password),
+      address: String(registerBody.address).trim(),
+      cardNumber: String(registerBody.cardNumber).trim(),
+      cardHolder: String(registerBody.cardHolder).trim(),
+      expiry: String(registerBody.expiry).trim(),
+      cvv: String(registerBody.cvv).trim(),
+      createdAt: now,
+      updatedAt: now,
+    };
+
+    writeMockUsers([...users, newUser]);
+
+    return of(new HttpResponse({
+      status: 201,
+      body: {
+        message: 'Registration successful',
+        user: sanitizeUser(newUser)
+      }
+    })).pipe(delay(500));
+  }
+
+  // Mock POST /api/auth/login
+  if (url.endsWith('/api/auth/login') && method === 'POST') {
+    const loginBody = body as { email?: string; password?: string };
+    const email = normalizeEmail(loginBody.email);
+    const password = String(loginBody.password || '');
+
+    if (!email || !password) {
+      return of(new HttpResponse({
+        status: 400,
+        body: { message: 'Email and password are required.' }
+      })).pipe(delay(300));
+    }
+
+    const users = readMockUsers();
+    const user = users.find((entry) => entry.email === email && entry.password === password);
+
+    if (!user) {
+      return of(new HttpResponse({
+        status: 401,
+        body: { message: 'Invalid email or password.' }
+      })).pipe(delay(350));
+    }
+
+    return of(new HttpResponse({
+      status: 200,
+      body: {
+        message: 'Login successful',
+        user: sanitizeUser(user)
+      }
+    })).pipe(delay(400));
+  }
 
   // Mock GET /api/menu
   if (url.endsWith('/api/menu') && method === 'GET') {

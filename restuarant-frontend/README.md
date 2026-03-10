@@ -76,6 +76,9 @@ Frontend runs on `http://localhost:4200`.
 
 - `public/config.js` now defaults to `useMockBackend: true` so the deployed site works
   even when backend hosting is unavailable.
+- Default mock login account:
+  - Email: `johndoe@example.com`
+  - Password: `john@123`
 - To force live backend usage in production, inject `window.__APP_CONFIG__` before
   `config.js` loads and set:
   - `apiBaseUrl` to your API URL
