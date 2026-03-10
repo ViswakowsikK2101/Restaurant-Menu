@@ -32,14 +32,6 @@
     "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=500&q=60"
   },
   {
-    "id": 5,
-    "name": "Garlic Bread",
-    "description": "Toasted bread topped with garlic and olive oil.",
-    "price": 109,
-    "category": "Starters",
-    "image": "https://www.ambitiouskitchen.com/wp-content/uploads/2023/02/Garlic-Bread-4.jpg"
-  },
-  {
     "id": 6,
     "name": "Lemonade",
     "description": "Freshly squeezed lemon juice with water and sugar.",

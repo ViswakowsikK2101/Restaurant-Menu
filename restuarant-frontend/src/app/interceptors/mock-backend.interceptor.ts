@@ -182,15 +182,6 @@ const MENU_ITEMS: MenuItem[] = [
     rating: 4.5
   },
   {
-    id: 5,
-    name: 'Garlic Bread',
-    description: 'Toasted bread topped with garlic and olive oil.',
-    price: 109,
-    image: 'https://images.pexels.com/photos/1759288/pexels-photo-1759288.jpeg?auto=compress&cs=tinysrgb&w=500',
-    category: 'Starters',
-    rating: 4.2
-  },
-  {
     id: 6,
     name: 'Lemonade',
     description: 'Freshly squeezed lemon juice with water and sugar.',
